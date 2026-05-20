@@ -30,4 +30,4 @@ Las instituciones educativas necesitan decidir cómo adoptar IA generativa (Chat
 4. Ejecutar las celdas en orden
 
 ## 6) Evidencias (outputs)
-Los gráficos del análisis se encuentran en la carpeta `outputs/` (PNG/PDF).# inteligencia-estrategica-genai-educacion
+Los gráficos del análisis se encuentran en la carpeta `outputs/` (PNG/PDF).
