@@ -1,0 +1,1 @@
+# inteligencia-estrategica-genai-educacion
