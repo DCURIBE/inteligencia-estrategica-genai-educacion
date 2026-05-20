@@ -1,4 +1,5 @@
 # Inteligencia estratégica de negocio: IA generativa en educación (Scopus 2020–2026)
+ Por: Darío Castro Uribe
 
 ## 1) Problemática de negocio
 Las instituciones educativas necesitan decidir cómo adoptar IA generativa (ChatGPT/LLMs) maximizando beneficios (tutoría, retroalimentación, diseño instruccional) y minimizando riesgos (integridad académica, privacidad, sesgos).
