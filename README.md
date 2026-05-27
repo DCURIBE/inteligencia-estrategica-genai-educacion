@@ -1,129 +1,158 @@
 # Inteligencia estratégica de negocio: IA generativa en educación (Scopus 2020–2026)
-Por: José Darío Castro Uribe
 
-## 1) Caso / problemática de negocio
-Las instituciones educativas (universidades/colegios y edtech) deben decidir cómo adoptar IA generativa (ChatGPT/LLMs) maximizando beneficios (tutoría, retroalimentación, diseño instruccional) y minimizando riesgos (integridad académica, privacidad, sesgos).
+**Por: Darío Castro Uribe y Ludys Cardozo Barragan**
 
-**Pregunta de negocio:** ¿Cómo evoluciona la evidencia científica (temas + sentimiento) sobre IA generativa en educación y cuál es la tendencia de crecimiento de publicaciones para orientar decisiones de adopción responsable en los próximos 24 meses?
+---
+
+## 1) Problemática de negocio
+
+Las instituciones educativas necesitan decidir cómo adoptar IA generativa (ChatGPT/LLMs) maximizando beneficios (tutoría, retroalimentación, diseño instruccional) y minimizando riesgos (integridad académica, privacidad, sesgos).
+
+**Pregunta de negocio:**  
+¿Cómo evoluciona la evidencia científica (temas + sentimiento) sobre IA generativa en educación y cuál es la tendencia de crecimiento de publicaciones para orientar decisiones en los próximos 24 meses?
 
 ---
 
 ## 2) Datos
-- Fuente: Scopus (export CSV).
-- Filtros aplicados: 2020–2026, idioma español, artículos (ar) y conferencia (cp).
-- Variable textual principal: `Abstract` (para NLP).
-- Variable temporal: `Year` (para tendencia y predicción).
 
-> Nota: En Biblioshiny se importaron 344 registros. Para análisis en Colab se trabajó con 316 registros tras limpieza (abstract no vacío) y filtro 2020–2026.
-
----
-
-## 3) Metodología (flujo analítico integrado)
-1) **Carga y limpieza del CSV** (normalización de columnas, filtro temporal, depuración de abstracts).
-2) **Bibliometría (Bibliometrix/Biblioshiny)**: mapa temático, red de co-ocurrencia, fuentes relevantes, producción anual.
-3) **NLP (BERT)**: sentimiento por abstract y agregación anual.
-4) **Estadística (PDF)**: densidad del conteo anual de publicaciones (KDE/Normal ajustada).
-5) **ML (predicción)**: modelo de tendencia para pronosticar publicaciones futuras.
-6) **Dashboard/Reporte**: exportables en PNG/PDF + interpretación estratégica (LLM).
-7) **Estrategias y KPIs**: diseño de acciones y métricas para toma de decisiones.
+- **Fuente:** Scopus (export CSV)
+- **Periodo:** 2020–2026
+- **Idioma:** español
+- **Registros trabajados en Colab:** 316 (tras limpieza y disponibilidad de abstract)
 
 ---
 
-## 4) Evidencias visuales (outputs)
-### Bibliometría (Bibliometrix/Biblioshiny)
-- Mapa temático (Thematic Map):
-  - PNG: `outputs/thematic_map.png`
-  - PDF: `outputs/thematic_map.pdf`
+## 3) Metodología (flujo)
 
-![Mapa temático](outputs/thematic_map.png)
+1. Carga y limpieza del CSV (`year`, `abstract`)
+2. Bibliometría (Bibliometrix/Biblioshiny): mapa temático, red de co-ocurrencia, fuentes relevantes y producción anual
+3. NLP (BERT): sentimiento por abstract y promedio anual
+4. Estadística (PDF) + ML: modelado de tendencia y predicción
+5. Dashboard/Reporte: exportables en PNG/PDF y texto interpretativo (LLM)
+6. Estrategias de negocio + KPIs
 
-- Red de co-ocurrencia:
-  - PNG: `outputs/cooccurrence_network.png`
-  - PDF: `outputs/cooccurrence_network.pdf`
+---
 
-![Red de co-ocurrencia](outputs/cooccurrence_network.png)
+## 4) Estructura del repositorio
 
-- Fuentes más relevantes:
-  - PNG: `outputs/most_relevant_sources.png`
-  - PDF: `outputs/most_relevant_sources.pdf`
+- `notebooks/`: notebook reproducible (.ipynb)
+- `outputs/`: gráficos exportados (PNG/PDF)
 
-![Fuentes más relevantes](outputs/most_relevant_sources.png)
+---
 
-- Producción anual:
-  - PNG: `outputs/annual_production.png`
-  - PDF: `outputs/annual_production.pdf`
+## 5) Cómo ejecutar (Colab)
+
+1. Abrir el notebook en `notebooks/`
+2. Montar Drive
+3. Ajustar la variable `CSV_META` con la ruta del CSV
+4. Ejecutar las celdas en orden
+
+---
+
+## 6) Resultados y visualizaciones
+
+### Producción científica anual
 
 ![Producción anual](outputs/annual_production.png)
 
-### Estadística + ML (tendencia)
-- PDF (densidad): `outputs/pdf_publications_density.pdf`
-- PDF (predicción ML): `outputs/ml_forecast_publications.pdf`
+**Interpretación:**  
+Se evidencia crecimiento sostenido de publicaciones sobre IA generativa en educación entre 2020 y 2026, indicando expansión del interés científico y relevancia estratégica del tema.
 
 ---
 
-## 5) Interpretación para toma de decisiones (aporte empresarial)
-**Hallazgo 1 — Temas dominantes:** El núcleo del campo se organiza alrededor de educación + IA/ChatGPT, lo que indica alta relevancia y demanda de lineamientos pedagógicos y de gobernanza.  
-**Decisión sugerida:** avanzar con adopción controlada, priorizando rediseño de evaluación y formación docente.
+### Red de co-ocurrencia
 
-**Hallazgo 2 — Líneas especializadas:** ética/integridad académica, pensamiento crítico/creatividad y formación docente aparecen como líneas clave que condicionan la adopción.  
-**Decisión sugerida:** establecer política institucional y protocolos (uso permitido/no permitido) antes de escalar.
+![Coocurrencia](outputs/cooccurrence_network.png)
 
-**Hallazgo 3 — Sentimiento y tendencia:** el sentimiento anual y el crecimiento de publicaciones funcionan como señal de madurez del tema.  
-**Decisión sugerida:** pilotos con métricas en el corto plazo y escalamiento progresivo si la tendencia se mantiene al alza y el discurso se estabiliza.
+**Interpretación:**  
+Las palabras clave muestran relaciones temáticas relevantes y conexiones entre conceptos asociados a inteligencia artificial, aprendizaje y educación.
 
 ---
 
-## 6) Estrategias de negocio (a 24 meses)
-1) **Gobernanza y uso responsable**
-   - Política de uso, privacidad, integridad académica, verificación y transparencia.
-2) **Pilotos pedagógicos de alto valor**
-   - Casos de uso priorizados: feedback, tutoría, apoyo a escritura, diseño instruccional.
-3) **Capacitación y rediseño de evaluación**
-   - Alfabetización en IA (docentes/estudiantes) + evaluación auténtica.
+### Mapa temático
+
+![Mapa temático](outputs/thematic_map.png)
+
+**Interpretación:**  
+Se identifican líneas temáticas emergentes y consolidadas, permitiendo reconocer tendencias y áreas de investigación con mayor desarrollo.
 
 ---
 
-## 7) KPIs (indicadores clave)
-### Estrategia 1 — Gobernanza
-- % de programas/asignaturas con política de uso publicada.
-- # incidentes de integridad académica asociados a IA por semestre.
-- % cumplimiento de requisitos de privacidad/gobernanza (checklist institucional).
+### Fuentes relevantes
 
-### Estrategia 2 — Pilotos de alto valor
-- Reducción del tiempo promedio de retroalimentación (horas/días).
-- % estudiantes que reportan mejora en calidad del feedback (encuesta).
-- Mejora en desempeño en evaluaciones auténticas (rúbrica).
+![Fuentes](outputs/most_relevant_sources.png)
 
-### Estrategia 3 — Capacitación + evaluación
-- % docentes certificados en alfabetización en IA.
-- % estudiantes que completan módulo de uso responsable.
-- # asignaturas con evaluación rediseñada (autenticidad/proceso).
+**Interpretación:**  
+Se destacan revistas y fuentes académicas líderes en la producción científica relacionada con IA generativa y educación.
 
 ---
 
-## 8) Limitaciones metodológicas
-- Cobertura limitada a **Scopus**, idioma español y periodo 2020–2026 (sesgo de cobertura).
-- El análisis bibliométrico depende de la calidad de metadatos (keywords/abstracts).
-- El análisis de sentimiento (BERT) trabaja sobre abstracts: no representa todo el contenido del artículo.
-- La predicción ML usa pocos puntos temporales (años), por lo que la incertidumbre es alta (se recomienda actualizar con nuevos años y comparar modelos).
+### Sentimiento NLP
+
+![Sentimiento](outputs/sentiment_over_time.png)
+
+**Interpretación:**  
+Predomina sentimiento positivo en los abstracts analizados, sugiriendo percepción favorable frente al uso de IA generativa en contextos educativos.
 
 ---
 
-## 9) Conclusiones
-- IA generativa en educación es un campo de alta centralidad temática, con discusión creciente sobre ética, evaluación e integridad académica.
-- La evidencia respalda adopción **gradual y gobernada**, con pilotos medibles y capacitación como habilitadores.
-- La combinación bibliometría + NLP + ML mejora la lectura estratégica al conectar “qué se investiga”, “cómo se discute” y “hacia dónde crece” el campo.
+## 7) Evidencias (outputs)
+
+Los gráficos del análisis se encuentran en la carpeta `outputs/` en formato PNG y PDF, permitiendo reproducibilidad y verificación de los resultados obtenidos.
 
 ---
 
-## 10) Cómo ejecutar (Colab)
-1. Abrir el notebook en `notebooks/`.
-2. Montar Drive.
-3. Ajustar la variable `CSV_META` con la ruta del CSV en Drive.
-4. Ejecutar las celdas en orden (Runtime → Run all).
+## 8) KPIs estratégicos
+
+Los indicadores clave de rendimiento (KPIs) permiten monitorear la evolución científica y apoyar decisiones estratégicas sobre adopción de IA generativa en educación.
+
+| KPI | Indicador | Interpretación estratégica |
+|---|---|---|
+| Crecimiento de publicaciones | Variación anual de publicaciones | Mide expansión del campo científico |
+| Sentimiento positivo | Proporción de abstracts positivos | Evalúa percepción académica favorable |
+| Intensidad temática | Frecuencia de palabras clave | Identifica temas dominantes y emergentes |
+| Precisión del modelo predictivo | Error o ajuste del modelo ML | Evalúa confiabilidad de las predicciones |
+
+**Aplicación estratégica:**  
+Estos KPIs permiten monitorear la madurez del tema, anticipar cambios y orientar decisiones institucionales relacionadas con innovación educativa y adopción de IA generativa.
 
 ---
 
-## 11) Estructura del repositorio
-- `notebooks/`: notebook reproducible (.ipynb)
-- `outputs/`: gráficos y PDFs (evidencias)
+## 9) Limitaciones del estudio
+
+Aunque el análisis proporciona evidencia relevante para la inteligencia estratégica, se identifican algunas limitaciones metodológicas:
+
+- La base de datos utilizada corresponde exclusivamente a Scopus.
+- El análisis de sentimiento se realizó sobre abstracts y no sobre textos completos.
+- El modelo predictivo depende del comportamiento histórico observado y puede verse afectado por cambios disruptivos futuros.
+- La literatura científica en otros idiomas o bases de datos podría estar subrepresentada.
+
+Estas limitaciones deben considerarse al interpretar los resultados y formular decisiones estratégicas.
+
+---
+
+## 10) Conclusiones
+
+1. La producción científica sobre IA generativa en educación presenta crecimiento sostenido durante el periodo 2020–2026, evidenciando consolidación y expansión temática.
+
+2. El análisis bibliométrico identifica relaciones significativas entre inteligencia artificial, aprendizaje y transformación educativa, mostrando convergencia temática relevante.
+
+3. El análisis de sentimiento evidencia predominancia de percepciones positivas respecto al uso de IA generativa en educación, aunque persisten preocupaciones relacionadas con ética e integridad académica.
+
+4. El uso combinado de bibliometría, NLP y Machine Learning fortalece la inteligencia estratégica al integrar análisis descriptivo, interpretativo y predictivo.
+
+---
+
+## 11) Implicaciones para la toma de decisiones
+
+Los hallazgos del estudio aportan evidencia para orientar decisiones estratégicas en instituciones educativas.
+
+| Hallazgo | Decisión sugerida |
+|---|---|
+| Crecimiento sostenido de publicaciones | Fortalecer procesos de innovación y vigilancia tecnológica |
+| Sentimiento mayoritariamente positivo | Diseñar pilotos institucionales de IA generativa |
+| Temas emergentes identificados | Impulsar capacitación docente y actualización curricular |
+| Riesgos éticos presentes | Formular políticas de uso responsable y gobernanza digital |
+
+**Interpretación estratégica:**  
+Los resultados sugieren que las instituciones educativas deberían avanzar hacia modelos graduales de adopción de IA generativa, acompañados de formación, protocolos éticos y evaluación continua de impacto.
